@@ -36,6 +36,10 @@ function App() {
       })
       .catch(error => console.log(error))
       .finally(() => setIsPending(false));
+
+    return () => {
+      window.removeEventListener('keydown', closeModalMethods);
+    };
   }, [searchQuery, page]);
 
   const openModalHandler = (url, tags) => {
